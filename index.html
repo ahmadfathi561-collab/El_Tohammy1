@@ -582,11 +582,11 @@
           <div>
             <label class="block font-bold text-slate-200 mb-1">المدة</label>
             <select id="editCustDuration" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-2 text-xs text-white focus:border-emerald-500 focus:outline-none transition">
+              <option value="5 شهور">5 شهور</option>
               <option value="6 شهور">6 شهور</option>
-              <option value="12 شهر (سنة)">12 شهر (سنة)</option>
-              <option value="18 شهر">18 شهر</option>
-              <option value="24 شهر (سنتين)">24 شهر (سنتين)</option>
-              <option value="36 شهر (3 سنين)">36 شهر (3 سنين)</option>
+              <option value="8 شهور">8 شهور</option>
+              <option value="10 شهور">10 شهور</option>
+              <option value="12 شهر">12 شهر</option>
             </select>
           </div>
         </div>
@@ -1062,11 +1062,11 @@
             <div>
               <label class="block text-xs font-bold text-slate-200 mb-1.5">مدة التقسيط</label>
               <select id="custDuration" onchange="autoSuggestMonthly()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none transition font-semibold">
+                <option value="5 شهور">5 شهور</option>
                 <option value="6 شهور">6 شهور</option>
-                <option value="12 شهر (سنة)" selected>12 شهر (سنة)</option>
-                <option value="18 شهر">18 شهر</option>
-                <option value="24 شهر (سنتين)">24 شهر (سنتين)</option>
-                <option value="36 شهر (3 سنين)">36 شهر (3 سنين)</option>
+                <option value="8 شهور">8 شهور</option>
+                <option value="10 شهور">10 شهور</option>
+                <option value="12 شهر" selected>12 شهر</option>
               </select>
             </div>
 
@@ -2491,7 +2491,7 @@
       document.getElementById('editCustPhone').value = cust.phone;
       document.getElementById('editCustTotal').value = cust.totalAmount;
       document.getElementById('editCustMonthly').value = cust.monthlyAmount;
-      document.getElementById('editCustDuration').value = cust.durationText || "12 شهر (سنة)";
+      document.getElementById('editCustDuration').value = cust.durationText || "12 شهر";
       document.getElementById('editCustDueDate').value = cust.nextDueDate;
 
       document.getElementById('customerEditModal').classList.remove('hidden');
