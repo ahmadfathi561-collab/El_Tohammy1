@@ -100,15 +100,6 @@
       animation: toastFly 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    @keyframes highlightRow {
-      0% { background-color: rgba(6, 182, 212, 0.35); }
-      50% { background-color: rgba(16, 185, 129, 0.45); }
-      100% { background-color: transparent; }
-    }
-    .row-highlight {
-      animation: highlightRow 2.5s ease-out forwards;
-    }
-
     /* تحسينات فائقة الدقة للوضع النهاري (Light Mode) وتوحيد الخطوط */
     html:not(.dark) body {
       background-color: #f1f5f9 !important;
@@ -170,7 +161,6 @@
         linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px) !important;
     }
 
-    /* تنسيق خاص وواضح لإشعارات التوست التلقائية في الوضع النهاري */
     html:not(.dark) .custom-toast-alert {
       background-color: #ffffff !important;
       color: #0f172a !important;
@@ -194,7 +184,6 @@
       font-weight: 700 !important;
     }
 
-    /* زر ملف العميل في الوضع النهاري */
     html:not(.dark) .btn-customer-profile {
       background-color: #e0f2fe !important;
       color: #0369a1 !important;
@@ -206,7 +195,6 @@
       color: #0284c7 !important;
     }
 
-    /* أزرار واضحة في الوضع النهاري */
     html:not(.dark) .treasury-quick-btn {
       background-color: #0284c7 !important;
       color: #ffffff !important;
@@ -296,7 +284,7 @@
     </div>
   </div>
 
-  <!-- MODAL: توثيق بيع موتوسيكل وإدراج بيانات المرور الشاملة -->
+  <!-- MODAL: توثيق بيع موتوسيكل -->
   <div id="saleModal" class="hidden fixed inset-0 bg-black/85 backdrop-blur-md z-[600] flex items-center justify-center p-4 overflow-y-auto">
     <div class="glass-panel max-w-xl w-full rounded-3xl p-6 border border-emerald-500/30 shadow-2xl shadow-emerald-950/50 relative my-auto">
       <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
@@ -355,11 +343,9 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-1 gap-3">
-            <div>
-              <label class="block font-bold text-slate-200 mb-1">سنة الصنع (الموديل)</label>
-              <input required id="modalManufactureYear" type="number" min="2000" max="2030" value="2026" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:border-cyan-500 focus:outline-none transition font-mono" />
-            </div>
+          <div>
+            <label class="block font-bold text-slate-200 mb-1">سنة الصنع (الموديل)</label>
+            <input required id="modalManufactureYear" type="number" min="2000" max="2030" value="2026" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:border-cyan-500 focus:outline-none transition font-mono" />
           </div>
         </div>
 
@@ -600,16 +586,14 @@
     </div>
   </div>
 
-  <!-- AUTH SCREEN (صفحة تسجيل الدخول وإدارة كلمة المرور) -->
+  <!-- AUTH SCREEN -->
   <div id="authScreen" class="fixed inset-0 bg-[#030712]/98 backdrop-blur-2xl z-[1000] flex items-center justify-center p-4 overflow-y-auto">
     <div class="relative max-w-md w-full my-auto">
-      <!-- خلفية جمالية متوهجة وراء بطاقة الدخول -->
       <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600 via-cyan-600 to-teal-500 rounded-[32px] blur-xl opacity-30 animate-pulse pointer-events-none"></div>
 
       <div class="glass-panel relative w-full rounded-3xl p-8 sm:p-10 border border-white/10 shadow-2xl overflow-hidden">
         <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-cyan-400 to-emerald-500"></div>
 
-        <!-- قسم تسجيل الدخول الأساسي -->
         <div id="loginSectionView">
           <div class="text-center mb-8">
             <div class="w-20 h-20 mx-auto mb-5 rounded-3xl bg-gradient-to-tr from-emerald-500 via-cyan-500 to-teal-400 p-[2px] shadow-glow-emerald">
@@ -661,7 +645,6 @@
           </form>
         </div>
 
-        <!-- قسم تغيير كلمة المرور -->
         <div id="changePasswordSectionView" class="hidden space-y-4">
           <div class="text-center mb-6">
             <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl">
@@ -740,7 +723,6 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <!-- أزرار النسخ الاحتياطي وزر تقرير الخزينة العام -->
           <div class="hidden md:flex items-center gap-1.5">
             <button onclick="printGeneralTreasuryReport()" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-500/50 text-slate-200 hover:text-amber-400 text-xs font-bold transition flex items-center gap-1.5" title="طباعة تقرير الخزينة العام">
               <i class="fa-solid fa-file-invoice text-amber-400"></i>
@@ -877,7 +859,7 @@
             </h2>
           </div>
 
-          <form id="newBikeForm" onsubmit="handleAddNewBike(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
+          <form id="newBikeForm" onsubmit="handleAddNewBike(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
               <label class="block text-xs font-bold text-slate-200 mb-1.5">الماركة</label>
               <select id="bikeBrand" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none transition">
@@ -890,7 +872,7 @@
               </select>
             </div>
 
-            <div class="lg:col-span-2">
+            <div>
               <label class="block text-xs font-bold text-slate-200 mb-1.5">موديل الموتوسيكل</label>
               <input required id="bikeModel" type="text" placeholder="مثال: فجوري 26 كينج" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none transition" />
             </div>
@@ -911,11 +893,16 @@
             </div>
 
             <div>
+              <label class="block text-xs font-bold text-slate-200 mb-1.5">اسم المكان / المقر المشتري منه</label>
+              <input id="bikeStoreLocation" type="text" placeholder="مثال: مقر المعادي / فرع التجمع" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none transition" />
+            </div>
+
+            <div>
               <label class="block text-xs font-bold text-slate-200 mb-1.5">السعر (ج.م)</label>
               <input required id="bikePrice" type="number" min="1" placeholder="45000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none transition font-mono" />
             </div>
 
-            <div class="sm:col-span-2 lg:col-span-7 flex justify-end">
+            <div class="sm:col-span-2 lg:col-span-4 flex justify-end">
               <button type="submit" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold py-2.5 px-6 rounded-xl text-sm transition shadow-glow-emerald flex items-center gap-2">
                 <i class="fa-solid fa-plus"></i>
                 <span>تسجيل الموتوسيكل في المعرض</span>
@@ -932,7 +919,7 @@
             <div class="flex flex-wrap items-center gap-2.5">
               <div class="relative w-full sm:w-64">
                 <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-3 text-slate-400 text-xs"></i>
-                <input id="bikeSearchField" oninput="renderBikesInventory()" type="text" placeholder="ابحث برقم الشاسيه أو الموديل..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pr-9 pl-4 py-2 text-xs text-white focus:border-cyan-500 focus:outline-none transition font-mono" />
+                <input id="bikeSearchField" oninput="renderBikesInventory()" type="text" placeholder="ابحث برقم الشاسيه أو المكان..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pr-9 pl-4 py-2 text-xs text-white focus:border-cyan-500 focus:outline-none transition font-mono" />
               </div>
 
               <select id="bikeBrandFilter" onchange="renderBikesInventory()" class="bg-slate-900 border border-slate-700 text-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none font-semibold">
@@ -960,9 +947,9 @@
                   <th class="p-3.5">رقم الشاسيه</th>
                   <th class="p-3.5">رقم الموتور</th>
                   <th class="p-3.5">اللون</th>
+                  <th class="p-3.5">مكان الشراء</th>
                   <th class="p-3.5">السعر</th>
                   <th class="p-3.5">الحالة الحالية</th>
-                  <th class="p-3.5">تاريخ التوثيق</th>
                   <th class="p-3.5 text-center">الإجراءات</th>
                 </tr>
               </thead>
@@ -1298,7 +1285,6 @@
   <script>
     const AUTH_USER_TARGET = "Mahmoud_Tohammy";
     
-    // استرجاع كلمة المرور المخزنة أو تعيين الافتراضية
     function getStoredPassword() {
       return localStorage.getItem('al_tohamy_custom_pass') || "Mm01140050787@12#";
     }
@@ -1311,9 +1297,9 @@
       loans: []
     };
 
-    if (!localStorage.getItem('al_tohamy_pro_db_cleaned_v2')) {
+    if (!localStorage.getItem('al_tohamy_pro_db_cleaned_v3')) {
       localStorage.removeItem('al_tohamy_pro_db');
-      localStorage.setItem('al_tohamy_pro_db_cleaned_v2', 'true');
+      localStorage.setItem('al_tohamy_pro_db_cleaned_v3', 'true');
     }
 
     let store = {
@@ -1328,7 +1314,6 @@
       updateReminderEngine(false);
     }
 
-    // طباعة تقرير الخزينة العام في نافذة متصفح خارجية مستقلة وبنفس تصميم الفواتير الاحترافي
     function printGeneralTreasuryReport() {
       const totalExp = store.data.expenses.reduce((acc, x) => acc + x.amount, 0);
       const netLiquid = store.data.treasuryFund - totalExp;
@@ -1365,24 +1350,20 @@
             .company-title { font-size: 24px; font-weight: 900; margin: 0; color: #0f172a; }
             .doc-title { font-size: 18px; font-weight: 800; margin: 5px 0; color: #047857; text-decoration: underline; }
             .date-badge { display: inline-block; font-size: 13px; font-weight: 700; margin-top: 4px; padding: 3px 12px; background-color: #f1f5f9; border-radius: 4px; border: 1px solid #cbd5e1; }
-            
             .kpi-grid { display: flex; gap: 15px; margin-bottom: 25px; }
             .kpi-card { flex: 1; border: 1.5px solid #334155; padding: 12px; border-radius: 8px; background: #f8fafc; text-align: center; }
             .kpi-title { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 4px; }
             .kpi-value { font-size: 18px; font-weight: 900; font-family: monospace; color: #0f172a; }
-            
             .section-title { font-size: 14px; font-weight: 800; margin: 15px 0 8px 0; color: #0f172a; border-right: 4px solid #047857; padding-right: 8px; }
             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
             th { background-color: #f1f5f9; border: 1.5px solid #334155; padding: 8px 10px; font-size: 13px; font-weight: 800; text-align: right; color: #0f172a; }
             td { border: 1.5px solid #334155; padding: 8px 10px; font-size: 12.5px; }
-            
             .signatures-table { width: 100%; margin-top: 30px; border: none; }
             .signatures-table td { border: none; padding: 5px; font-size: 13px; font-weight: 800; }
             .footer-address { margin-top: 25px; border-top: 1px dashed #94a3b8; padding-top: 10px; text-align: center; font-size: 12px; font-weight: 700; color: #475569; }
           </style>
         </head>
         <body>
-
           <div class="header-box">
             <h1 class="company-title">معرض التهامي لتجارة الموتوسيكلات</h1>
             <div class="doc-title">تقرير الخزينة والسيولة المالي الشامل</div>
@@ -1447,7 +1428,6 @@
       printWin.document.close();
     }
 
-    // دوال النسخ الاحتياطي (تصدير واستعادة البيانات)
     function exportSystemBackup() {
       try {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(store.data, null, 2));
@@ -1576,7 +1556,6 @@
       }
     }
 
-    // دوال الصوت
     function synthesizeChime(type = 'action') {
       if (store.audioMuted) return;
       try {
@@ -1677,7 +1656,6 @@
       }
 
       toast.className = toastClass;
-
       toast.innerHTML = `
         <div class="text-xl mt-0.5"><i class="fa-solid fa-${type === 'urgent' ? 'triangle-exclamation text-rose-600 dark:text-rose-400' : 'circle-check text-emerald-600 dark:text-emerald-400'}"></i></div>
         <div class="flex-1 text-xs font-cairo">
@@ -1730,7 +1708,6 @@
       }
     }
 
-    // دوال الانتقال بين شاشة الدخول وشاشة تغيير كلمة المرور
     function switchToChangePasswordView() {
       document.getElementById('loginSectionView').classList.add('hidden');
       document.getElementById('changePasswordSectionView').classList.remove('hidden');
@@ -1745,7 +1722,6 @@
       document.getElementById('loginSectionView').classList.remove('hidden');
     }
 
-    // تنفيذ عملية تغيير كلمة المرور والتحقق من المطابقة
     function handlePasswordChangeSubmit(e) {
       e.preventDefault();
       const oldP = document.getElementById('oldPassField').value;
@@ -1855,6 +1831,7 @@
         motorNumber: document.getElementById('bikeMotorNumber').value.trim(),
         manufactureYear: '2026',
         color: document.getElementById('bikeColor').value.trim() || 'قياسي',
+        storeLocation: document.getElementById('bikeStoreLocation').value.trim() || 'المعرض الرئيسي',
         price: parseFloat(document.getElementById('bikePrice').value),
         status: "AVAILABLE",
         addedAt: preciseAddedAt
@@ -1872,7 +1849,7 @@
       const bike = store.data.bikes.find(b => b.id === bikeId);
       if (!bike) return;
       document.getElementById('modalBikeId').value = bike.id;
-      document.getElementById('modalBikeDetails').textContent = `${bike.brand} - ${bike.model} | شاسيه: ${bike.serial} | موتور: ${bike.motorNumber || '—'} | اللون: ${bike.color || 'قياسي'}`;
+      document.getElementById('modalBikeDetails').textContent = `${bike.brand} - ${bike.model} | شاسيه: ${bike.serial} | مقر الشراء: ${bike.storeLocation || 'المعرض الرئيسي'}`;
       document.getElementById('modalSalePrice').value = bike.price;
       document.getElementById('modalSerial').value = bike.serial || '';
       document.getElementById('modalMotorNumber').value = bike.motorNumber || '';
@@ -1956,7 +1933,7 @@
       const statusFilter = document.getElementById('bikeStatusFilter').value;
 
       const filtered = store.data.bikes.filter(b => {
-        const matchSearch = b.model.toLowerCase().includes(search) || b.serial.toLowerCase().includes(search) || b.brand.toLowerCase().includes(search);
+        const matchSearch = b.model.toLowerCase().includes(search) || b.serial.toLowerCase().includes(search) || b.brand.toLowerCase().includes(search) || (b.storeLocation || '').toLowerCase().includes(search);
         const matchBrand = brandFilter === 'ALL' || b.brand === brandFilter;
         const matchStatus = statusFilter === 'ALL' || b.status === statusFilter;
         return matchSearch && matchBrand && matchStatus;
@@ -1982,7 +1959,7 @@
         tr.className = 'hover:bg-slate-900/60 transition border-b border-white/5';
         const isAvail = b.status === 'AVAILABLE';
 
-        const badge = isAvail
+        const badge = isAvail 
           ? `<span class="inline-flex items-center gap-1.5 text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full"><i class="fa-solid fa-circle text-[6px]"></i> متاح بالمعرض</span>`
           : `<span class="inline-flex items-center gap-1.5 text-[11px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full"><i class="fa-solid fa-check"></i> تم البيع (${b.buyer || 'عميل'})</span>`;
 
@@ -1994,9 +1971,9 @@
           <td class="p-3.5 font-mono text-cyan-300 font-semibold tracking-wider">${b.serial}</td>
           <td class="p-3.5 font-mono text-slate-200 text-xs tracking-wider">${b.motorNumber || '—'}</td>
           <td class="p-3.5 text-slate-300 text-xs font-semibold">${b.color || '—'}</td>
+          <td class="p-3.5 text-xs text-amber-300 font-bold"><i class="fa-solid fa-location-dot text-[10px]"></i> ${b.storeLocation || 'المعرض الرئيسي'}</td>
           <td class="p-3.5 font-bold text-emerald-400 font-mono">${b.price.toLocaleString()} ج.م</td>
           <td class="p-3.5">${badge}</td>
-          <td class="p-3.5 text-xs text-slate-300 font-mono font-semibold">${isAvail ? b.addedAt : b.soldAt || b.addedAt}</td>
           <td class="p-3.5 text-center flex items-center justify-center gap-2">
             ${isAvail 
               ? `<button onclick="openSaleModal(${b.id})" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-600/30 flex items-center gap-1 transition">
@@ -2092,118 +2069,25 @@
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
           <style>
-            @page {
-              size: A4;
-              margin: 10mm 15mm;
-            }
-            body { 
-              font-family: 'Cairo', sans-serif; 
-              padding: 0; 
-              margin: 0;
-              color: #111827; 
-              background: #fff; 
-              line-height: 1.45;
-            }
-            .header-box {
-              text-align: center;
-              border-bottom: 2px solid #1e293b;
-              padding-bottom: 8px;
-              margin-bottom: 12px;
-            }
-            .company-title {
-              font-size: 22px;
-              font-weight: 900;
-              margin: 0;
-              color: #0f172a;
-            }
-            .doc-title {
-              font-size: 17px;
-              font-weight: 800;
-              margin: 4px 0;
-              color: #b91c1c;
-              text-decoration: underline;
-            }
-            .date-badge {
-              display: inline-block;
-              font-size: 12.5px;
-              font-weight: 700;
-              margin-top: 2px;
-              padding: 2px 10px;
-              background-color: #f1f5f9;
-              border-radius: 4px;
-              border: 1px solid #cbd5e1;
-            }
-            .salutation-box {
-              margin-bottom: 10px;
-              font-size: 13px;
-            }
-            .salutation-box strong {
-              font-size: 14.5px;
-            }
-            .section-title {
-              font-size: 13.5px;
-              font-weight: 800;
-              margin: 8px 0 4px 0;
-              color: #0f172a;
-              border-right: 3.5px solid #b91c1c;
-              padding-right: 6px;
-            }
-            table { 
-              width: 100%; 
-              border-collapse: collapse; 
-              margin-bottom: 8px; 
-            }
-            td { 
-              border: 1.5px solid #334155; 
-              padding: 6px 10px; 
-              font-size: 12.5px; 
-            }
-            .label-td { 
-              background-color: #f8fafc; 
-              font-weight: 800; 
-              width: 25%; 
-              color: #1e293b; 
-            }
-            .value-td { 
-              font-weight: 700; 
-              color: #0f172a; 
-            }
-            .declaration-box {
-              background: #fff;
-              border: 1.5px solid #334155;
-              padding: 8px 12px;
-              font-size: 12.5px;
-              line-height: 1.6;
-              font-weight: 600;
-              margin-top: 4px;
-              text-align: justify;
-            }
-            .signatures-table {
-              width: 100%;
-              margin-top: 15px;
-              border: none;
-            }
-            .signatures-table td {
-              border: none;
-              padding: 5px;
-              vertical-align: top;
-              font-size: 13px;
-              font-weight: 800;
-            }
-            .footer-address {
-              margin-top: 15px;
-              border-top: 1px dashed #94a3b8;
-              padding-top: 8px;
-              text-align: center;
-              font-size: 11.5px;
-              font-weight: 700;
-              color: #475569;
-              letter-spacing: 0.5px;
-            }
+            @page { size: A4; margin: 10mm 15mm; }
+            body { font-family: 'Cairo', sans-serif; padding: 0; margin: 0; color: #111827; background: #fff; line-height: 1.45; }
+            .header-box { text-align: center; border-bottom: 2px solid #1e293b; padding-bottom: 8px; margin-bottom: 12px; }
+            .company-title { font-size: 22px; font-weight: 900; margin: 0; color: #0f172a; }
+            .doc-title { font-size: 17px; font-weight: 800; margin: 4px 0; color: #b91c1c; text-decoration: underline; }
+            .date-badge { display: inline-block; font-size: 12.5px; font-weight: 700; margin-top: 2px; padding: 2px 10px; background-color: #f1f5f9; border-radius: 4px; border: 1px solid #cbd5e1; }
+            .salutation-box { margin-bottom: 10px; font-size: 13px; }
+            .section-title { font-size: 13.5px; font-weight: 800; margin: 8px 0 4px 0; color: #0f172a; border-right: 3.5px solid #b91c1c; padding-right: 6px; }
+            table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+            td { border: 1.5px solid #334155; padding: 6px 10px; font-size: 12.5px; }
+            .label-td { background-color: #f8fafc; font-weight: 800; width: 25%; color: #1e293b; }
+            .value-td { font-weight: 700; color: #0f172a; }
+            .declaration-box { background: #fff; border: 1.5px solid #334155; padding: 8px 12px; font-size: 12.5px; line-height: 1.6; font-weight: 600; margin-top: 4px; text-align: justify; }
+            .signatures-table { width: 100%; margin-top: 15px; border: none; }
+            .signatures-table td { border: none; padding: 5px; vertical-align: top; font-size: 13px; font-weight: 800; }
+            .footer-address { margin-top: 15px; border-top: 1px dashed #94a3b8; padding-top: 8px; text-align: center; font-size: 11.5px; font-weight: 700; color: #475569; }
           </style>
         </head>
         <body>
-
           <div class="header-box">
             <h1 class="company-title">شركة التهامي لتجارة الموتوسيكلات</h1>
             <div class="doc-title">فاتورة مبايعة موتوسيكل</div>
@@ -2213,55 +2097,25 @@
           <div class="salutation-box">
             <p style="margin: 0;"><strong>إلى السيد / مدير إدارة المرور</strong></p>
             <p style="margin: 2px 0 0 0;">تحية طيبة وبعد،،،</p>
-            <p style="margin: 2px 0 0 0;">نحيط سيادتكم علماً بأننا نحن شركة التهامي لتجارة الموتوسيكلات، قد قمنا ببيع الموتوسيكل الموضحة بياناته أدناه:</p>
+            <p style="margin: 2px 0 0 0;">نحيط سيادتكم علماً بأننا نحن شركة التهامي لتجارة الموتوسيكلات، قد قمنا بيع الموتوسيكل الموضحة بياناته أدناه:</p>
           </div>
 
           <div class="section-title">أولاً: بيانات المشتري</div>
           <table>
-            <tr>
-              <td class="label-td">الاسم</td>
-              <td class="value-td">${b.buyer || 'غير مسجل'}</td>
-            </tr>
-            <tr>
-              <td class="label-td">الرقم القومي</td>
-              <td class="value-td" style="font-family: monospace; font-size: 14px; letter-spacing: 1px;">${b.buyerNationalId || '—'}</td>
-            </tr>
-            <tr>
-              <td class="label-td">العنوان</td>
-              <td class="value-td">${b.buyerAddress || '—'}</td>
-            </tr>
-            <tr>
-              <td class="label-td">رقم الهاتف</td>
-              <td class="value-td" style="font-family: monospace;">${b.buyerPhone || '—'}</td>
-            </tr>
+            <tr><td class="label-td">الاسم</td><td class="value-td">${b.buyer || 'غير مسجل'}</td></tr>
+            <tr><td class="label-td">الرقم القومي</td><td class="value-td" style="font-family: monospace; font-size: 14px; letter-spacing: 1px;">${b.buyerNationalId || '—'}</td></tr>
+            <tr><td class="label-td">العنوان</td><td class="value-td">${b.buyerAddress || '—'}</td></tr>
+            <tr><td class="label-td">رقم الهاتف</td><td class="value-td" style="font-family: monospace;">${b.buyerPhone || '—'}</td></tr>
           </table>
 
           <div class="section-title">ثانياً: بيانات المركبة</div>
           <table>
-            <tr>
-              <td class="label-td">نوع المركبة</td>
-              <td class="value-td">موتوسيكل</td>
-            </tr>
-            <tr>
-              <td class="label-td">الماركة / الطراز</td>
-              <td class="value-td">${b.brand} - ${b.model}</td>
-            </tr>
-            <tr>
-              <td class="label-td">سنة الصنع</td>
-              <td class="value-td" style="font-family: monospace;">${b.manufactureYear || '2026'}</td>
-            </tr>
-            <tr>
-              <td class="label-td">رقم الشاسيه</td>
-              <td class="value-td" style="font-family: monospace; font-weight: 900; font-size: 14px;">${b.serial}</td>
-            </tr>
-            <tr>
-              <td class="label-td">رقم الموتور</td>
-              <td class="value-td" style="font-family: monospace; font-weight: 900; font-size: 14px;">${b.motorNumber || '—'}</td>
-            </tr>
-            <tr>
-              <td class="label-td">اللون</td>
-              <td class="value-td">${b.color || 'قياسي'}</td>
-            </tr>
+            <tr><td class="label-td">نوع المركبة</td><td class="value-td">موتوسيكل</td></tr>
+            <tr><td class="label-td">الماركة / الطراز</td><td class="value-td">${b.brand} - ${b.model}</td></tr>
+            <tr><td class="label-td">سنة الصنع</td><td class="value-td" style="font-family: monospace;">${b.manufactureYear || '2026'}</td></tr>
+            <tr><td class="label-td">رقم الشاسيه</td><td class="value-td" style="font-family: monospace; font-weight: 900; font-size: 14px;">${b.serial}</td></tr>
+            <tr><td class="label-td">رقم الموتور</td><td class="value-td" style="font-family: monospace; font-weight: 900; font-size: 14px;">${b.motorNumber || '—'}</td></tr>
+            <tr><td class="label-td">اللون</td><td class="value-td">${b.color || 'قياسي'}</td></tr>
           </table>
 
           <div class="section-title">ثالثاً: الإقرار</div>
@@ -2283,9 +2137,7 @@
             </tr>
           </table>
 
-          <div class="footer-address">
-            Address: 20 Ahmed Kamel - Al Lasilki - Maadi
-          </div>
+          <div class="footer-address">Address: 20 Ahmed Kamel - Al Lasilki - Maadi</div>
 
           <script>
             window.onload = function() {
